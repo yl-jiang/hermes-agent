@@ -947,6 +947,7 @@ class AIAgent:
                     client_kwargs["default_headers"] = headers
 
             self.api_key = client_kwargs.get("api_key", "")
+            self.base_url = client_kwargs.get("base_url", self.base_url)
             try:
                 self.client = self._create_openai_client(client_kwargs, reason="agent_init", shared=True)
                 if not self.quiet_mode:
@@ -3020,7 +3021,7 @@ class AIAgent:
 
     @staticmethod
     def _cap_delegate_task_calls(tool_calls: list) -> list:
-        """Truncate excess delegate_task calls to MAX_CONCURRENT_CHILDREN.
+        """Truncate excess delegate_task calls to max_concurrent_children.
 
         The delegate_tool caps the task list inside a single call, but the
         model can emit multiple separate delegate_task tool_calls in one
@@ -3028,23 +3029,24 @@ class AIAgent:
 
         Returns the original list if no truncation was needed.
         """
-        from tools.delegate_tool import MAX_CONCURRENT_CHILDREN
+        from tools.delegate_tool import _get_max_concurrent_children
+        max_children = _get_max_concurrent_children()
         delegate_count = sum(1 for tc in tool_calls if tc.function.name == "delegate_task")
-        if delegate_count <= MAX_CONCURRENT_CHILDREN:
+        if delegate_count <= max_children:
             return tool_calls
         kept_delegates = 0
         truncated = []
         for tc in tool_calls:
             if tc.function.name == "delegate_task":
-                if kept_delegates < MAX_CONCURRENT_CHILDREN:
+                if kept_delegates < max_children:
                     truncated.append(tc)
                     kept_delegates += 1
             else:
                 truncated.append(tc)
         logger.warning(
             "Truncated %d excess delegate_task call(s) to enforce "
-            "MAX_CONCURRENT_CHILDREN=%d limit",
-            delegate_count - MAX_CONCURRENT_CHILDREN, MAX_CONCURRENT_CHILDREN,
+            "max_concurrent_children=%d limit",
+            delegate_count - max_children, max_children,
         )
         return truncated
 
