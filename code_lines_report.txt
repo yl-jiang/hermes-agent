@@ -1,0 +1,1263 @@
+════════════════════════════════════════════════════
+ Code Lines Report
+ Project   : hermes-agent
+ Directory : /home/uih/F/JYL/Github/hermes-agent
+ Generated : 2026-04-10 17:26:22
+ Top-N     : 10
+════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────
+ Top 10 文件（按有效代码行数排序）
+────────────────────────────────────────────────────
+  #1    20255 / 20255  website/package-lock.json
+  #2     7665 / 9830   run_agent.py
+  #3     7264 / 9133   cli.py
+  #4     5964 / 7688   gateway/run.py
+  #5     4593 / 5668   hermes_cli/main.py
+  #6     3101 / 3589   gateway/platforms/feishu.py
+  #7     3096 / 3096   package-lock.json
+  #8     2968 / 3690   tests/run_agent/test_run_agent.py
+  #9     2671 / 3280   hermes_cli/setup.py
+  #10    2568 / 3115   hermes_cli/auth.py
+────────────────────────────────────────────────────
+  (格式: 排名  有效行数 / 总行数  文件路径)
+
+────────────────────────────────────────────────────
+ Summary
+────────────────────────────────────────────────────
+ Files scanned       : 862
+ Total lines         : 384905
+ Effective code lines: 305161
+ Comment/blank lines : 79744
+────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────
+ Full Directory Tree
+────────────────────────────────────────────────────
+hermes-agent/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml (144/130)
+│   │   ├── config.yml (11/11)
+│   │   ├── feature_request.yml (73/66)
+│   │   └── setup_help.yml (100/90)
+│   └── workflows/
+│       ├── deploy-site.yml (74/57)
+│       ├── docker-publish.yml (91/76)
+│       ├── docs-site-checks.yml (42/33)
+│       ├── main.yml (18/15)
+│       ├── nix.yml (40/37)
+│       ├── supply-chain-audit.yml (192/142)
+│       └── tests.yml (73/58)
+├── .plans/
+├── acp_adapter/
+│   ├── __init__.py (1/1)
+│   ├── __main__.py (5/3)
+│   ├── auth.py (24/18)
+│   ├── entry.py (85/63)
+│   ├── events.py (175/126)
+│   ├── permissions.py (77/61)
+│   ├── server.py (726/628)
+│   ├── session.py (475/397)
+│   └── tools.py (214/167)
+├── acp_registry/
+│   ├── agent.json (12/12)
+│   └── icon.svg (25/19)
+├── agent/
+│   ├── __init__.py (6/5)
+│   ├── anthropic_adapter.py (1448/1099)
+│   ├── auxiliary_client.py (2296/1793)
+│   ├── builtin_memory_provider.py (114/86)
+│   ├── context_compressor.py (755/552)
+│   ├── context_references.py (491/423)
+│   ├── copilot_acp_client.py (570/500)
+│   ├── credential_pool.py (1317/1137)
+│   ├── display.py (1064/846)
+│   ├── error_classifier.py (813/599)
+│   ├── insights.py (799/655)
+│   ├── memory_manager.py (367/294)
+│   ├── memory_provider.py (231/173)
+│   ├── model_metadata.py (1048/806)
+│   ├── models_dev.py (781/568)
+│   ├── prompt_builder.py (990/815)
+│   ├── prompt_caching.py (72/54)
+│   ├── rate_limit_tracker.py (242/187)
+│   ├── redact.py (181/127)
+│   ├── retry_utils.py (57/42)
+│   ├── skill_commands.py (368/300)
+│   ├── skill_utils.py (442/328)
+│   ├── smart_model_routing.py (194/169)
+│   ├── subdirectory_hints.py (224/169)
+│   ├── title_generator.py (125/96)
+│   ├── trajectory.py (56/44)
+│   └── usage_pricing.py (656/582)
+├── assets/
+├── cron/
+│   ├── __init__.py (42/37)
+│   ├── jobs.py (759/596)
+│   └── scheduler.py (905/702)
+├── datagen-config-examples/
+│   ├── run_browser_tasks.sh (65/21)
+│   ├── trajectory_compression.yaml (101/33)
+│   └── web_research.yaml (46/18)
+├── dev/
+│   └── session_20260410.json (64/64)
+├── docker/
+│   └── entrypoint.sh (34/17)
+├── docs/
+│   ├── migration/
+│   ├── plans/
+│   ├── skins/
+│   │   └── example-skin.yaml (89/40)
+│   └── honcho-integration-spec.html (698/592)
+├── environments/
+│   ├── benchmarks/
+│   │   ├── tblite/
+│   │   │   ├── __init__.py (0/0)
+│   │   │   ├── default.yaml (39/21)
+│   │   │   ├── local.yaml (38/22)
+│   │   │   ├── local_vllm.yaml (40/24)
+│   │   │   ├── run_eval.sh (42/15)
+│   │   │   └── tblite_env.py (119/88)
+│   │   ├── terminalbench_2/
+│   │   │   ├── __init__.py (0/0)
+│   │   │   ├── default.yaml (42/22)
+│   │   │   ├── run_eval.sh (42/15)
+│   │   │   └── terminalbench2_env.py (1016/744)
+│   │   ├── yc_bench/
+│   │   │   ├── __init__.py (0/0)
+│   │   │   ├── default.yaml (43/25)
+│   │   │   ├── run_eval.sh (34/13)
+│   │   │   └── yc_bench_env.py (848/663)
+│   │   └── __init__.py (0/0)
+│   ├── hermes_swe_env/
+│   │   ├── __init__.py (0/0)
+│   │   ├── default.yaml (34/24)
+│   │   └── hermes_swe_env.py (229/173)
+│   ├── terminal_test_env/
+│   │   ├── __init__.py (0/0)
+│   │   ├── default.yaml (34/21)
+│   │   └── terminal_test_env.py (292/221)
+│   ├── tool_call_parsers/
+│   │   ├── __init__.py (120/84)
+│   │   ├── deepseek_v3_1_parser.py (72/54)
+│   │   ├── deepseek_v3_parser.py (89/67)
+│   │   ├── glm45_parser.py (109/83)
+│   │   ├── glm47_parser.py (35/25)
+│   │   ├── hermes_parser.py (73/55)
+│   │   ├── kimi_k2_parser.py (93/68)
+│   │   ├── llama_parser.py (96/67)
+│   │   ├── longcat_parser.py (69/55)
+│   │   ├── mistral_parser.py (135/104)
+│   │   ├── qwen3_coder_parser.py (163/114)
+│   │   └── qwen_parser.py (19/14)
+│   ├── __init__.py (36/28)
+│   ├── agent_loop.py (534/416)
+│   ├── agentic_opd_env.py (1214/974)
+│   ├── hermes_base_env.py (714/526)
+│   ├── patches.py (35/25)
+│   ├── tool_context.py (474/349)
+│   └── web_research_env.py (719/550)
+├── gateway/
+│   ├── builtin_hooks/
+│   │   ├── __init__.py (1/1)
+│   │   └── boot_md.py (87/67)
+│   ├── platforms/
+│   │   ├── __init__.py (17/14)
+│   │   ├── api_server.py (1719/1399)
+│   │   ├── base.py (1825/1400)
+│   │   ├── bluebubbles.py (828/686)
+│   │   ├── dingtalk.py (340/263)
+│   │   ├── discord.py (2864/2281)
+│   │   ├── email.py (621/509)
+│   │   ├── feishu.py (3589/3101)
+│   │   ├── homeassistant.py (449/344)
+│   │   ├── matrix.py (2053/1587)
+│   │   ├── mattermost.py (746/593)
+│   │   ├── signal.py (876/643)
+│   │   ├── slack.py (1671/1328)
+│   │   ├── sms.py (276/216)
+│   │   ├── telegram.py (2727/2225)
+│   │   ├── telegram_network.py (246/197)
+│   │   ├── webhook.py (661/513)
+│   │   ├── wecom.py (1342/1152)
+│   │   └── whatsapp.py (940/806)
+│   ├── __init__.py (35/29)
+│   ├── channel_directory.py (271/196)
+│   ├── config.py (1009/832)
+│   ├── delivery.py (317/248)
+│   ├── hooks.py (170/127)
+│   ├── mirror.py (132/105)
+│   ├── pairing.py (309/240)
+│   ├── run.py (7688/5964)
+│   ├── session.py (1082/843)
+│   ├── status.py (391/313)
+│   ├── sticker_cache.py (111/87)
+│   └── stream_consumer.py (426/324)
+├── hermes_agent.egg-info/
+├── hermes_cli/
+│   ├── __init__.py (15/13)
+│   ├── auth.py (3115/2568)
+│   ├── auth_commands.py (538/451)
+│   ├── banner.py (542/417)
+│   ├── callbacks.py (242/209)
+│   ├── checklist.py (140/114)
+│   ├── claw.py (566/454)
+│   ├── clipboard.py (446/341)
+│   ├── codex_models.py (176/145)
+│   ├── colors.py (38/30)
+│   ├── commands.py (1045/821)
+│   ├── config.py (2856/2233)
+│   ├── copilot_auth.py (294/226)
+│   ├── cron.py (290/233)
+│   ├── curses_ui.py (172/143)
+│   ├── default_soul.py (11/10)
+│   ├── doctor.py (1014/834)
+│   ├── dump.py (337/272)
+│   ├── env_loader.py (45/33)
+│   ├── gateway.py (2342/1925)
+│   ├── logs.py (335/266)
+│   ├── main.py (5668/4593)
+│   ├── mcp_config.py (645/485)
+│   ├── memory_setup.py (523/401)
+│   ├── model_normalize.py (362/242)
+│   ├── model_switch.py (932/675)
+│   ├── models.py (1762/1449)
+│   ├── nous_subscription.py (529/452)
+│   ├── pairing.py (97/79)
+│   ├── plugins.py (611/451)
+│   ├── plugins_cmd.py (690/518)
+│   ├── profiles.py (1069/791)
+│   ├── providers.py (504/370)
+│   ├── runtime_provider.py (825/681)
+│   ├── setup.py (3280/2671)
+│   ├── skills_config.py (189/145)
+│   ├── skills_hub.py (1219/970)
+│   ├── skin_engine.py (723/622)
+│   ├── status.py (464/368)
+│   ├── tools_config.py (1791/1414)
+│   ├── uninstall.py (325/239)
+│   └── webhook.py (259/203)
+├── landingpage/
+│   ├── index.html (665/624)
+│   ├── script.js (521/453)
+│   └── style.css (1178/977)
+├── nix/
+├── optional-skills/
+│   ├── autonomous-ai-agents/
+│   │   ├── blackbox/
+│   │   └── honcho/
+│   ├── blockchain/
+│   │   ├── base/
+│   │   │   └── scripts/
+│   │   │       └── base_client.py (1008/762)
+│   │   └── solana/
+│   │       └── scripts/
+│   │           └── solana_client.py (698/521)
+│   ├── communication/
+│   │   └── one-three-one-rule/
+│   ├── creative/
+│   │   ├── blender-mcp/
+│   │   └── meme-generation/
+│   │       └── scripts/
+│   │           ├── generate_meme.py (471/370)
+│   │           └── templates.json (97/97)
+│   ├── devops/
+│   │   ├── cli/
+│   │   │   └── references/
+│   │   └── docker-management/
+│   ├── email/
+│   │   └── agentmail/
+│   ├── health/
+│   │   └── neuroskill-bci/
+│   │       └── references/
+│   ├── mcp/
+│   │   └── fastmcp/
+│   │       ├── references/
+│   │       ├── scripts/
+│   │       │   └── scaffold_fastmcp.py (56/39)
+│   │       └── templates/
+│   │           ├── api_wrapper.py (54/37)
+│   │           ├── database_server.py (77/58)
+│   │           └── file_processor.py (55/41)
+│   ├── migration/
+│   │   └── openclaw-migration/
+│   │       └── scripts/
+│   │           └── openclaw_to_hermes.py (2673/2291)
+│   ├── mlops/
+│   │   ├── accelerate/
+│   │   │   └── references/
+│   │   ├── chroma/
+│   │   │   └── references/
+│   │   ├── faiss/
+│   │   │   └── references/
+│   │   ├── flash-attention/
+│   │   │   └── references/
+│   │   ├── hermes-atropos-environments/
+│   │   │   └── references/
+│   │   ├── huggingface-tokenizers/
+│   │   │   └── references/
+│   │   ├── instructor/
+│   │   │   └── references/
+│   │   ├── lambda-labs/
+│   │   │   └── references/
+│   │   ├── llava/
+│   │   │   └── references/
+│   │   ├── nemo-curator/
+│   │   │   └── references/
+│   │   ├── pinecone/
+│   │   │   └── references/
+│   │   ├── pytorch-lightning/
+│   │   │   └── references/
+│   │   ├── qdrant/
+│   │   │   └── references/
+│   │   ├── saelens/
+│   │   │   └── references/
+│   │   ├── simpo/
+│   │   │   └── references/
+│   │   ├── slime/
+│   │   │   └── references/
+│   │   ├── tensorrt-llm/
+│   │   │   └── references/
+│   │   └── torchtitan/
+│   │       └── references/
+│   ├── productivity/
+│   │   ├── canvas/
+│   │   │   └── scripts/
+│   │   │       └── canvas_api.py (157/122)
+│   │   ├── memento-flashcards/
+│   │   │   └── scripts/
+│   │   │       ├── memento_cards.py (353/282)
+│   │   │       └── youtube_quiz.py (88/68)
+│   │   ├── siyuan/
+│   │   └── telephony/
+│   │       └── scripts/
+│   │           └── telephony.py (1343/1187)
+│   ├── research/
+│   │   ├── bioinformatics/
+│   │   ├── domain-intel/
+│   │   │   └── scripts/
+│   │   │       └── domain_intel.py (397/329)
+│   │   ├── duckduckgo-search/
+│   │   │   └── scripts/
+│   │   │       └── duckduckgo.sh (28/18)
+│   │   ├── gitnexus-explorer/
+│   │   │   └── scripts/
+│   │   │       └── proxy.mjs (92/71)
+│   │   ├── parallel-cli/
+│   │   ├── qmd/
+│   │   └── scrapling/
+│   └── security/
+│       ├── 1password/
+│       │   └── references/
+│       ├── oss-forensics/
+│       │   ├── references/
+│       │   ├── scripts/
+│       │   │   └── evidence-store.py (313/265)
+│       │   └── templates/
+│       └── sherlock/
+├── packaging/
+│   └── homebrew/
+│       └── hermes-agent.rb (48/34)
+├── plans/
+├── plugins/
+│   ├── memory/
+│   │   ├── byterover/
+│   │   │   ├── __init__.py (383/288)
+│   │   │   └── plugin.yaml (9/9)
+│   │   ├── hindsight/
+│   │   │   ├── __init__.py (883/724)
+│   │   │   └── plugin.yaml (8/8)
+│   │   ├── holographic/
+│   │   │   ├── __init__.py (407/333)
+│   │   │   ├── holographic.py (203/143)
+│   │   │   ├── plugin.yaml (5/5)
+│   │   │   ├── retrieval.py (593/438)
+│   │   │   └── store.py (574/459)
+│   │   ├── honcho/
+│   │   │   ├── __init__.py (714/557)
+│   │   │   ├── cli.py (1305/1058)
+│   │   │   ├── client.py (555/412)
+│   │   │   ├── plugin.yaml (7/7)
+│   │   │   └── session.py (1083/878)
+│   │   ├── mem0/
+│   │   │   ├── __init__.py (373/301)
+│   │   │   └── plugin.yaml (5/5)
+│   │   ├── openviking/
+│   │   │   ├── __init__.py (632/501)
+│   │   │   └── plugin.yaml (9/9)
+│   │   ├── retaindb/
+│   │   │   ├── __init__.py (766/622)
+│   │   │   └── plugin.yaml (7/7)
+│   │   ├── supermemory/
+│   │   │   ├── __init__.py (791/696)
+│   │   │   └── plugin.yaml (5/5)
+│   │   └── __init__.py (317/247)
+│   └── __init__.py (1/0)
+├── scripts/
+│   ├── whatsapp-bridge/
+│   │   ├── allowlist.js (84/67)
+│   │   ├── allowlist.test.mjs (59/49)
+│   │   ├── bridge.js (570/447)
+│   │   ├── package-lock.json (2156/2156)
+│   │   └── package.json (16/16)
+│   ├── discord-voice-doctor.py (389/305)
+│   ├── hermes-gateway (416/286)
+│   ├── install.sh (1348/1088)
+│   ├── kill_modal.sh (34/24)
+│   ├── release.py (630/490)
+│   └── sample_and_compress.py (409/289)
+├── skills/
+│   ├── apple/
+│   │   ├── apple-notes/
+│   │   ├── apple-reminders/
+│   │   ├── findmy/
+│   │   └── imessage/
+│   ├── autonomous-ai-agents/
+│   │   ├── claude-code/
+│   │   ├── codex/
+│   │   ├── hermes-agent/
+│   │   └── opencode/
+│   ├── creative/
+│   │   ├── ascii-art/
+│   │   ├── ascii-video/
+│   │   │   └── references/
+│   │   ├── excalidraw/
+│   │   │   ├── references/
+│   │   │   └── scripts/
+│   │   │       └── upload.py (133/90)
+│   │   ├── manim-video/
+│   │   │   ├── references/
+│   │   │   └── scripts/
+│   │   │       └── setup.sh (14/13)
+│   │   ├── p5js/
+│   │   │   ├── references/
+│   │   │   ├── scripts/
+│   │   │   │   ├── export-frames.js (179/105)
+│   │   │   │   ├── render.sh (108/69)
+│   │   │   │   ├── serve.sh (28/14)
+│   │   │   │   └── setup.sh (87/67)
+│   │   │   └── templates/
+│   │   │       └── viewer.html (395/317)
+│   │   ├── popular-web-designs/
+│   │   │   └── templates/
+│   │   └── songwriting-and-ai-music/
+│   ├── data-science/
+│   │   └── jupyter-live-kernel/
+│   ├── devops/
+│   │   └── webhook-subscriptions/
+│   ├── diagramming/
+│   ├── dogfood/
+│   │   ├── references/
+│   │   └── templates/
+│   ├── domain/
+│   ├── email/
+│   │   └── himalaya/
+│   │       └── references/
+│   ├── feeds/
+│   ├── gaming/
+│   │   ├── minecraft-modpack-server/
+│   │   └── pokemon-player/
+│   ├── gifs/
+│   ├── github/
+│   │   ├── codebase-inspection/
+│   │   ├── github-auth/
+│   │   │   └── scripts/
+│   │   │       └── gh-env.sh (66/39)
+│   │   ├── github-code-review/
+│   │   │   └── references/
+│   │   ├── github-issues/
+│   │   │   └── templates/
+│   │   ├── github-pr-workflow/
+│   │   │   ├── references/
+│   │   │   └── templates/
+│   │   └── github-repo-management/
+│   │       └── references/
+│   ├── index-cache/
+│   │   ├── anthropics_skills_skills_.json (1/1)
+│   │   ├── claude_marketplace_anthropics_skills.json (1/1)
+│   │   ├── lobehub_index.json (1/1)
+│   │   └── openai_skills_skills_.json (1/1)
+│   ├── inference-sh/
+│   ├── leisure/
+│   │   └── find-nearby/
+│   │       └── scripts/
+│   │           └── find_nearby.py (184/139)
+│   ├── mcp/
+│   │   ├── mcporter/
+│   │   └── native-mcp/
+│   ├── media/
+│   │   ├── gif-search/
+│   │   ├── heartmula/
+│   │   ├── songsee/
+│   │   └── youtube-content/
+│   │       ├── references/
+│   │       └── scripts/
+│   │           └── fetch_transcript.py (124/99)
+│   ├── mlops/
+│   │   ├── cloud/
+│   │   │   └── modal/
+│   │   │       └── references/
+│   │   ├── evaluation/
+│   │   │   ├── lm-evaluation-harness/
+│   │   │   │   └── references/
+│   │   │   └── weights-and-biases/
+│   │   │       └── references/
+│   │   ├── huggingface-hub/
+│   │   ├── inference/
+│   │   │   ├── gguf/
+│   │   │   │   └── references/
+│   │   │   ├── guidance/
+│   │   │   │   └── references/
+│   │   │   ├── llama-cpp/
+│   │   │   │   └── references/
+│   │   │   ├── obliteratus/
+│   │   │   │   ├── references/
+│   │   │   │   └── templates/
+│   │   │   │       ├── abliteration-config.yaml (33/20)
+│   │   │   │       ├── analysis-study.yaml (40/19)
+│   │   │   │       └── batch-abliteration.yaml (41/23)
+│   │   │   ├── outlines/
+│   │   │   │   └── references/
+│   │   │   └── vllm/
+│   │   │       └── references/
+│   │   ├── models/
+│   │   │   ├── audiocraft/
+│   │   │   │   └── references/
+│   │   │   ├── clip/
+│   │   │   │   └── references/
+│   │   │   ├── segment-anything/
+│   │   │   │   └── references/
+│   │   │   ├── stable-diffusion/
+│   │   │   │   └── references/
+│   │   │   └── whisper/
+│   │   │       └── references/
+│   │   ├── research/
+│   │   │   └── dspy/
+│   │   │       └── references/
+│   │   ├── training/
+│   │   │   ├── axolotl/
+│   │   │   │   └── references/
+│   │   │   ├── grpo-rl-training/
+│   │   │   │   └── templates/
+│   │   │   │       └── basic_grpo_training.py (228/164)
+│   │   │   ├── peft/
+│   │   │   │   └── references/
+│   │   │   ├── pytorch-fsdp/
+│   │   │   │   └── references/
+│   │   │   ├── trl-fine-tuning/
+│   │   │   │   └── references/
+│   │   │   └── unsloth/
+│   │   │       └── references/
+│   │   └── vector-databases/
+│   ├── note-taking/
+│   │   └── obsidian/
+│   ├── productivity/
+│   │   ├── google-workspace/
+│   │   │   ├── references/
+│   │   │   └── scripts/
+│   │   │       ├── google_api.py (327/251)
+│   │   │       ├── gws_bridge.py (89/66)
+│   │   │       └── setup.py (397/311)
+│   │   ├── linear/
+│   │   ├── nano-pdf/
+│   │   ├── notion/
+│   │   │   └── references/
+│   │   ├── ocr-and-documents/
+│   │   │   └── scripts/
+│   │   │       ├── extract_marker.py (87/70)
+│   │   │       └── extract_pymupdf.py (98/87)
+│   │   └── powerpoint/
+│   │       └── scripts/
+│   │           ├── office/
+│   │           │   ├── helpers/
+│   │           │   │   ├── __init__.py (0/0)
+│   │           │   │   ├── merge_runs.py (199/141)
+│   │           │   │   └── simplify_redlines.py (197/144)
+│   │           │   ├── schemas/
+│   │           │   │   ├── ISO-IEC29500-4_2016/
+│   │           │   │   ├── ecma/
+│   │           │   │   │   └── fourth-edition/
+│   │           │   │   ├── mce/
+│   │           │   │   └── microsoft/
+│   │           │   └── pack.py (159/127)
+│   │           ├── __init__.py (0/0)
+│   │           ├── add_slide.py (195/140)
+│   │           └── clean.py (286/216)
+│   ├── red-teaming/
+│   │   └── godmode/
+│   │       ├── references/
+│   │       ├── scripts/
+│   │       │   ├── auto_jailbreak.py (769/628)
+│   │       │   ├── godmode_race.py (530/412)
+│   │       │   ├── load_godmode.py (45/29)
+│   │       │   └── parseltongue.py (550/430)
+│   │       └── templates/
+│   │           ├── prefill-subtle.json (10/10)
+│   │           └── prefill.json (18/18)
+│   ├── research/
+│   │   ├── arxiv/
+│   │   │   └── scripts/
+│   │   │       └── search_arxiv.py (114/94)
+│   │   ├── blogwatcher/
+│   │   ├── llm-wiki/
+│   │   ├── polymarket/
+│   │   │   ├── references/
+│   │   │   └── scripts/
+│   │   │       └── polymarket.py (284/245)
+│   │   └── research-paper-writing/
+│   │       ├── references/
+│   │       └── templates/
+│   │           ├── aaai2026/
+│   │           ├── acl/
+│   │           ├── colm2025/
+│   │           ├── iclr2026/
+│   │           ├── icml2026/
+│   │           └── neurips2025/
+│   │               └── Makefile (36/29)
+│   ├── smart-home/
+│   │   └── openhue/
+│   ├── social-media/
+│   │   └── xitter/
+│   └── software-development/
+│       ├── plan/
+│       ├── requesting-code-review/
+│       ├── subagent-driven-development/
+│       ├── systematic-debugging/
+│       ├── test-driven-development/
+│       └── writing-plans/
+├── tests/
+│   ├── acp/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_auth.py (56/44)
+│   │   ├── test_entry.py (20/12)
+│   │   ├── test_events.py (280/176)
+│   │   ├── test_mcp_e2e.py (349/250)
+│   │   ├── test_permissions.py (75/53)
+│   │   ├── test_server.py (810/618)
+│   │   ├── test_session.py (370/271)
+│   │   └── test_tools.py (236/165)
+│   ├── agent/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_anthropic_adapter.py (1595/1316)
+│   │   ├── test_auxiliary_client.py (1339/1126)
+│   │   ├── test_auxiliary_config_bridge.py (307/239)
+│   │   ├── test_auxiliary_named_custom_providers.py (151/122)
+│   │   ├── test_context_compressor.py (769/597)
+│   │   ├── test_context_references.py (268/207)
+│   │   ├── test_credential_pool.py (1093/937)
+│   │   ├── test_credential_pool_routing.py (350/263)
+│   │   ├── test_crossloop_client_cache.py (186/138)
+│   │   ├── test_display.py (202/158)
+│   │   ├── test_display_emoji.py (123/103)
+│   │   ├── test_error_classifier.py (815/630)
+│   │   ├── test_external_skills.py (157/135)
+│   │   ├── test_insights.py (718/534)
+│   │   ├── test_memory_plugin_e2e.py (299/221)
+│   │   ├── test_memory_provider.py (850/646)
+│   │   ├── test_memory_user_id.py (289/195)
+│   │   ├── test_minimax_auxiliary_url.py (42/28)
+│   │   ├── test_minimax_provider.py (204/153)
+│   │   ├── test_model_metadata.py (635/482)
+│   │   ├── test_model_metadata_local_ctx.py (493/375)
+│   │   ├── test_models_dev.py (197/160)
+│   │   ├── test_prompt_builder.py (1129/873)
+│   │   ├── test_prompt_caching.py (143/115)
+│   │   ├── test_rate_limit_tracker.py (212/166)
+│   │   ├── test_redact.py (286/218)
+│   │   ├── test_skill_commands.py (407/342)
+│   │   ├── test_smart_model_routing.py (61/46)
+│   │   ├── test_subagent_progress.py (374/282)
+│   │   ├── test_subdirectory_hints.py (234/188)
+│   │   ├── test_title_generator.py (160/120)
+│   │   └── test_usage_pricing.py (125/101)
+│   ├── cli/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_branch_command.py (198/142)
+│   │   ├── test_cli_approval_ui.py (143/113)
+│   │   ├── test_cli_background_tui_refresh.py (105/71)
+│   │   ├── test_cli_browser_connect.py (57/42)
+│   │   ├── test_cli_context_warning.py (161/130)
+│   │   ├── test_cli_extension_hooks.py (138/118)
+│   │   ├── test_cli_file_drop.py (190/130)
+│   │   ├── test_cli_image_command.py (109/73)
+│   │   ├── test_cli_init.py (347/286)
+│   │   ├── test_cli_interrupt_subagent.py (172/125)
+│   │   ├── test_cli_loading_indicator.py (65/53)
+│   │   ├── test_cli_mcp_config_watch.py (103/71)
+│   │   ├── test_cli_new_session.py (222/179)
+│   │   ├── test_cli_plan_command.py (67/51)
+│   │   ├── test_cli_prefix_matching.py (160/124)
+│   │   ├── test_cli_preloaded_skills.py (127/101)
+│   │   ├── test_cli_provider_resolution.py (643/505)
+│   │   ├── test_cli_retry.py (49/36)
+│   │   ├── test_cli_save_config_value.py (80/61)
+│   │   ├── test_cli_secret_capture.py (147/113)
+│   │   ├── test_cli_skin_integration.py (117/89)
+│   │   ├── test_cli_status_bar.py (417/339)
+│   │   ├── test_cli_tools_command.py (130/96)
+│   │   ├── test_fast_command.py (256/202)
+│   │   ├── test_personality_none.py (212/172)
+│   │   ├── test_quick_commands.py (188/155)
+│   │   ├── test_reasoning_command.py (764/576)
+│   │   ├── test_resume_display.py (488/375)
+│   │   ├── test_session_boundary_hooks.py (66/45)
+│   │   ├── test_surrogate_sanitization.py (154/121)
+│   │   ├── test_worktree.py (842/625)
+│   │   └── test_worktree_security.py (130/103)
+│   ├── cron/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_codex_execution_paths.py (194/161)
+│   │   ├── test_cron_inactivity_timeout.py (289/232)
+│   │   ├── test_cron_script.py (557/423)
+│   │   ├── test_file_permissions.py (135/102)
+│   │   ├── test_jobs.py (574/440)
+│   │   └── test_scheduler.py (1184/982)
+│   ├── e2e/
+│   │   ├── __init__.py (0/0)
+│   │   ├── conftest.py (173/126)
+│   │   └── test_telegram_commands.py (217/152)
+│   ├── environments/
+│   │   └── benchmarks/
+│   │       └── test_terminalbench2_env_security.py (164/129)
+│   ├── fakes/
+│   │   ├── __init__.py (0/0)
+│   │   └── fake_ha_server.py (301/229)
+│   ├── gateway/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_agent_cache.py (260/196)
+│   │   ├── test_allowlist_startup_check.py (46/37)
+│   │   ├── test_api_server.py (1719/1378)
+│   │   ├── test_api_server_jobs.py (663/548)
+│   │   ├── test_api_server_toolset.py (129/99)
+│   │   ├── test_approve_deny_commands.py (641/474)
+│   │   ├── test_async_memory_flush.py (249/204)
+│   │   ├── test_background_command.py (323/237)
+│   │   ├── test_background_process_notifications.py (245/181)
+│   │   ├── test_base_topic_sessions.py (222/167)
+│   │   ├── test_bluebubbles.py (361/285)
+│   │   ├── test_channel_directory.py (287/243)
+│   │   ├── test_command_bypass_active_session.py (313/200)
+│   │   ├── test_config.py (296/244)
+│   │   ├── test_config_cwd_bridge.py (148/112)
+│   │   ├── test_delivery.py (96/72)
+│   │   ├── test_dingtalk.py (274/191)
+│   │   ├── test_discord_bot_filter.py (117/94)
+│   │   ├── test_discord_channel_controls.py (343/251)
+│   │   ├── test_discord_connect.py (140/103)
+│   │   ├── test_discord_document_handling.py (385/292)
+│   │   ├── test_discord_free_response.py (360/253)
+│   │   ├── test_discord_imports.py (23/16)
+│   │   ├── test_discord_media_metadata.py (9/6)
+│   │   ├── test_discord_opus.py (44/34)
+│   │   ├── test_discord_reactions.py (234/174)
+│   │   ├── test_discord_reply_mode.py (277/208)
+│   │   ├── test_discord_send.py (80/63)
+│   │   ├── test_discord_slash_commands.py (499/339)
+│   │   ├── test_discord_system_messages.py (99/75)
+│   │   ├── test_discord_thread_persistence.py (83/64)
+│   │   ├── test_dm_topics.py (647/461)
+│   │   ├── test_document_cache.py (157/106)
+│   │   ├── test_email.py (1178/932)
+│   │   ├── test_extract_local_files.py (317/218)
+│   │   ├── test_feishu.py (2924/2426)
+│   │   ├── test_feishu_approval_buttons.py (432/327)
+│   │   ├── test_flush_memory_stale_guard.py (224/173)
+│   │   ├── test_gateway_inactivity_timeout.py (315/263)
+│   │   ├── test_gateway_shutdown.py (107/79)
+│   │   ├── test_homeassistant.py (622/464)
+│   │   ├── test_hooks.py (222/164)
+│   │   ├── test_internal_event_bypass_pairing.py (226/158)
+│   │   ├── test_interrupt_key_match.py (150/104)
+│   │   ├── test_matrix.py (2190/1662)
+│   │   ├── test_matrix_mention.py (492/358)
+│   │   ├── test_matrix_voice.py (348/246)
+│   │   ├── test_mattermost.py (758/583)
+│   │   ├── test_media_download_retry.py (725/541)
+│   │   ├── test_media_extraction.py (184/132)
+│   │   ├── test_mirror.py (229/179)
+│   │   ├── test_pairing.py (356/245)
+│   │   ├── test_pii_redaction.py (156/125)
+│   │   ├── test_plan_command.py (129/107)
+│   │   ├── test_platform_base.py (450/343)
+│   │   ├── test_platform_reconnect.py (428/313)
+│   │   ├── test_queue_consumption.py (165/116)
+│   │   ├── test_reasoning_command.py (277/232)
+│   │   ├── test_resume_command.py (225/174)
+│   │   ├── test_retry_replacement.py (97/77)
+│   │   ├── test_retry_response.py (60/53)
+│   │   ├── test_run_progress_topics.py (336/263)
+│   │   ├── test_runner_fatal_adapter.py (96/71)
+│   │   ├── test_runner_startup_failures.py (89/67)
+│   │   ├── test_send_image_file.py (437/316)
+│   │   ├── test_send_retry.py (284/202)
+│   │   ├── test_session.py (1003/849)
+│   │   ├── test_session_boundary_hooks.py (158/124)
+│   │   ├── test_session_dm_thread_seeding.py (221/159)
+│   │   ├── test_session_env.py (45/34)
+│   │   ├── test_session_hygiene.py (386/275)
+│   │   ├── test_session_info.py (110/93)
+│   │   ├── test_session_model_reset.py (126/99)
+│   │   ├── test_session_race_guard.py (345/221)
+│   │   ├── test_session_reset_notify.py (207/155)
+│   │   ├── test_signal.py (772/535)
+│   │   ├── test_slack.py (1683/1281)
+│   │   ├── test_slack_approval_buttons.py (426/313)
+│   │   ├── test_slack_mention.py (312/204)
+│   │   ├── test_sms.py (215/157)
+│   │   ├── test_sse_agent_cancel.py (280/188)
+│   │   ├── test_ssl_certs.py (81/66)
+│   │   ├── test_status.py (157/121)
+│   │   ├── test_status_command.py (211/170)
+│   │   ├── test_step_callback_compat.py (133/103)
+│   │   ├── test_sticker_cache.py (127/101)
+│   │   ├── test_stream_consumer.py (468/345)
+│   │   ├── test_stt_config.py (77/57)
+│   │   ├── test_telegram_approval_buttons.py (291/209)
+│   │   ├── test_telegram_caption_merge.py (77/48)
+│   │   ├── test_telegram_conflict.py (301/226)
+│   │   ├── test_telegram_documents.py (695/525)
+│   │   ├── test_telegram_format.py (538/338)
+│   │   ├── test_telegram_group_gating.py (110/81)
+│   │   ├── test_telegram_network.py (644/467)
+│   │   ├── test_telegram_network_reconnect.py (162/118)
+│   │   ├── test_telegram_photo_interrupts.py (49/38)
+│   │   ├── test_telegram_reactions.py (260/181)
+│   │   ├── test_telegram_reply_mode.py (242/186)
+│   │   ├── test_telegram_text_batching.py (121/86)
+│   │   ├── test_telegram_thread_fallback.py (260/178)
+│   │   ├── test_title_command.py (208/161)
+│   │   ├── test_transcript_offset.py (267/205)
+│   │   ├── test_unauthorized_dm_behavior.py (255/212)
+│   │   ├── test_unknown_command.py (166/125)
+│   │   ├── test_update_command.py (651/483)
+│   │   ├── test_update_streaming.py (496/347)
+│   │   ├── test_verbose_command.py (146/112)
+│   │   ├── test_voice_command.py (2632/2003)
+│   │   ├── test_webhook_adapter.py (760/546)
+│   │   ├── test_webhook_dynamic_routes.py (87/67)
+│   │   ├── test_webhook_integration.py (339/254)
+│   │   ├── test_wecom.py (597/470)
+│   │   ├── test_whatsapp_connect.py (502/362)
+│   │   ├── test_whatsapp_group_gating.py (142/103)
+│   │   ├── test_whatsapp_reply_prefix.py (121/79)
+│   │   └── test_ws_auth_retry.py (216/153)
+│   ├── hermes_cli/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_anthropic_oauth_flow.py (52/41)
+│   │   ├── test_anthropic_provider_persistence.py (46/30)
+│   │   ├── test_api_key_providers.py (979/765)
+│   │   ├── test_argparse_flag_propagation.py (172/135)
+│   │   ├── test_atomic_json_write.py (159/113)
+│   │   ├── test_atomic_yaml_write.py (44/30)
+│   │   ├── test_auth_codex_provider.py (192/139)
+│   │   ├── test_auth_commands.py (659/534)
+│   │   ├── test_auth_nous_provider.py (156/125)
+│   │   ├── test_auth_qwen_provider.py (399/263)
+│   │   ├── test_banner.py (70/58)
+│   │   ├── test_banner_git_state.py (63/44)
+│   │   ├── test_banner_skills.py (68/47)
+│   │   ├── test_chat_skills_flag.py (101/73)
+│   │   ├── test_claw.py (702/538)
+│   │   ├── test_cmd_update.py (128/89)
+│   │   ├── test_coalesce_session_args.py (113/83)
+│   │   ├── test_codex_models.py (264/212)
+│   │   ├── test_commands.py (1030/783)
+│   │   ├── test_config.py (423/338)
+│   │   ├── test_config_env_expansion.py (132/101)
+│   │   ├── test_config_validation.py (174/144)
+│   │   ├── test_copilot_auth.py (208/167)
+│   │   ├── test_cron.py (107/90)
+│   │   ├── test_doctor.py (294/219)
+│   │   ├── test_env_loader.py (70/49)
+│   │   ├── test_external_credential_detection.py (50/41)
+│   │   ├── test_gateway.py (261/185)
+│   │   ├── test_gateway_linger.py (125/93)
+│   │   ├── test_gateway_runtime_health.py (22/18)
+│   │   ├── test_gateway_service.py (756/559)
+│   │   ├── test_gemini_provider.py (273/195)
+│   │   ├── test_launcher.py (42/27)
+│   │   ├── test_logs.py (288/200)
+│   │   ├── test_managed_installs.py (54/35)
+│   │   ├── test_mcp_config.py (400/277)
+│   │   ├── test_mcp_tools_config.py (291/227)
+│   │   ├── test_model_normalize.py (116/80)
+│   │   ├── test_model_provider_persistence.py (259/219)
+│   │   ├── test_model_switch_variant_tags.py (70/55)
+│   │   ├── test_model_validation.py (474/360)
+│   │   ├── test_models.py (358/284)
+│   │   ├── test_nous_subscription.py (151/122)
+│   │   ├── test_ollama_cloud_auth.py (657/489)
+│   │   ├── test_path_completion.py (184/137)
+│   │   ├── test_placeholder_usage.py (48/31)
+│   │   ├── test_plugin_cli_registration.py (256/193)
+│   │   ├── test_plugins.py (567/426)
+│   │   ├── test_plugins_cmd.py (557/386)
+│   │   ├── test_profile_export_credentials.py (52/37)
+│   │   ├── test_profiles.py (800/546)
+│   │   ├── test_reasoning_effort_menu.py (34/24)
+│   │   ├── test_runtime_provider_resolution.py (1216/938)
+│   │   ├── test_session_browse.py (542/398)
+│   │   ├── test_sessions_delete.py (117/85)
+│   │   ├── test_set_config_value.py (167/120)
+│   │   ├── test_setup.py (307/225)
+│   │   ├── test_setup_hermes_script.py (21/14)
+│   │   ├── test_setup_matrix_e2ee.py (31/26)
+│   │   ├── test_setup_model_provider.py (477/352)
+│   │   ├── test_setup_model_selection.py (155/125)
+│   │   ├── test_setup_noninteractive.py (139/115)
+│   │   ├── test_setup_openclaw_migration.py (538/412)
+│   │   ├── test_setup_prompt_menus.py (29/17)
+│   │   ├── test_skills_config.py (314/247)
+│   │   ├── test_skills_hub.py (233/158)
+│   │   ├── test_skills_install_flags.py (128/90)
+│   │   ├── test_skills_skip_confirm.py (174/142)
+│   │   ├── test_skills_subparser.py (35/23)
+│   │   ├── test_skin_engine.py (314/259)
+│   │   ├── test_status.py (44/32)
+│   │   ├── test_status_model_provider.py (124/97)
+│   │   ├── test_subprocess_timeouts.py (44/36)
+│   │   ├── test_tool_token_estimation.py (283/179)
+│   │   ├── test_tools_config.py (430/313)
+│   │   ├── test_tools_disable_enable.py (224/171)
+│   │   ├── test_update_autostash.py (636/460)
+│   │   ├── test_update_check.py (167/108)
+│   │   ├── test_update_gateway_restart.py (762/570)
+│   │   └── test_webhook_cli.py (189/158)
+│   ├── honcho_plugin/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_async_memory.py (469/338)
+│   │   ├── test_client.py (509/425)
+│   │   └── test_session.py (363/271)
+│   ├── integration/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_batch_runner.py (132/88)
+│   │   ├── test_checkpoint_resumption.py (440/323)
+│   │   ├── test_daytona_terminal.py (123/88)
+│   │   ├── test_ha_integration.py (341/252)
+│   │   ├── test_modal_terminal.py (301/201)
+│   │   ├── test_voice_channel_flow.py (611/450)
+│   │   └── test_web_tools.py (628/475)
+│   ├── plugins/
+│   │   ├── memory/
+│   │   │   ├── __init__.py (0/0)
+│   │   │   ├── test_hindsight_provider.py (598/459)
+│   │   │   ├── test_mem0_v2.py (227/157)
+│   │   │   └── test_supermemory_provider.py (411/322)
+│   │   ├── __init__.py (0/0)
+│   │   └── test_retaindb_plugin.py (776/614)
+│   ├── run_agent/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_1630_context_overflow_loop.py (268/211)
+│   │   ├── test_413_compression.py (475/379)
+│   │   ├── test_860_dedup.py (294/206)
+│   │   ├── test_agent_guardrails.py (263/197)
+│   │   ├── test_agent_loop.py (505/421)
+│   │   ├── test_agent_loop_tool_calling.py (552/405)
+│   │   ├── test_agent_loop_vllm.py (359/270)
+│   │   ├── test_anthropic_error_handling.py (490/390)
+│   │   ├── test_async_httpx_del_neuter.py (162/117)
+│   │   ├── test_compression_boundary.py (199/147)
+│   │   ├── test_compression_persistence.py (202/140)
+│   │   ├── test_compressor_fallback_update.py (91/67)
+│   │   ├── test_context_pressure.py (361/269)
+│   │   ├── test_context_token_tracking.py (127/94)
+│   │   ├── test_dict_tool_call_args.py (72/57)
+│   │   ├── test_exit_cleanup_interrupt.py (73/56)
+│   │   ├── test_fallback_model.py (377/327)
+│   │   ├── test_flush_memories_codex.py (277/227)
+│   │   ├── test_interactive_interrupt.py (203/160)
+│   │   ├── test_interrupt_propagation.py (161/119)
+│   │   ├── test_long_context_tier_429.py (209/157)
+│   │   ├── test_openai_client_lifecycle.py (189/144)
+│   │   ├── test_percentage_clamp.py (154/117)
+│   │   ├── test_primary_runtime_restore.py (424/312)
+│   │   ├── test_provider_fallback.py (156/129)
+│   │   ├── test_provider_parity.py (889/753)
+│   │   ├── test_real_interrupt_subagent.py (186/141)
+│   │   ├── test_redirect_stdout_issue.py (54/38)
+│   │   ├── test_run_agent.py (3690/2968)
+│   │   ├── test_run_agent_codex_responses.py (1100/893)
+│   │   ├── test_session_meta_filtering.py (90/65)
+│   │   ├── test_session_reset_fix.py (121/88)
+│   │   ├── test_streaming.py (816/650)
+│   │   ├── test_strict_api_validation.py (144/111)
+│   │   ├── test_token_persistence_non_cli.py (62/49)
+│   │   └── test_tool_arg_coercion.py (262/201)
+│   ├── skills/
+│   │   ├── test_google_oauth_setup.py (240/193)
+│   │   ├── test_google_workspace_api.py (175/134)
+│   │   ├── test_memento_cards.py (427/326)
+│   │   ├── test_openclaw_migration.py (724/599)
+│   │   ├── test_telephony_skill.py (229/191)
+│   │   └── test_youtube_quiz.py (128/96)
+│   ├── tools/
+│   │   ├── __init__.py (0/0)
+│   │   ├── test_ansi_strip.py (168/114)
+│   │   ├── test_approval.py (718/568)
+│   │   ├── test_base_environment.py (174/127)
+│   │   ├── test_browser_camofox.py (295/190)
+│   │   ├── test_browser_camofox_persistence.py (290/222)
+│   │   ├── test_browser_camofox_state.py (66/48)
+│   │   ├── test_browser_cdp_override.py (79/58)
+│   │   ├── test_browser_cleanup.py (140/118)
+│   │   ├── test_browser_console.py (295/212)
+│   │   ├── test_browser_content_none_guard.py (109/75)
+│   │   ├── test_browser_homebrew_paths.py (388/312)
+│   │   ├── test_browser_secret_exfil.py (186/141)
+│   │   ├── test_browser_ssrf_local.py (237/167)
+│   │   ├── test_checkpoint_manager.py (413/279)
+│   │   ├── test_clarify_tool.py (195/147)
+│   │   ├── test_clipboard.py (983/783)
+│   │   ├── test_code_execution.py (864/690)
+│   │   ├── test_command_guards.py (351/244)
+│   │   ├── test_config_null_guard.py (111/70)
+│   │   ├── test_credential_files.py (478/352)
+│   │   ├── test_cron_prompt_injection.py (48/33)
+│   │   ├── test_cronjob_tools.py (405/322)
+│   │   ├── test_daytona_environment.py (433/303)
+│   │   ├── test_debug_helpers.py (117/94)
+│   │   ├── test_delegate.py (1056/877)
+│   │   ├── test_delegate_toolset_scope.py (66/49)
+│   │   ├── test_docker_environment.py (384/281)
+│   │   ├── test_docker_find.py (48/35)
+│   │   ├── test_env_passthrough.py (199/154)
+│   │   ├── test_file_operations.py (335/259)
+│   │   ├── test_file_read_guards.py (378/268)
+│   │   ├── test_file_staleness.py (241/174)
+│   │   ├── test_file_tools.py (314/253)
+│   │   ├── test_file_tools_live.py (457/346)
+│   │   ├── test_file_write_safety.py (83/57)
+│   │   ├── test_force_dangerous_override.py (81/57)
+│   │   ├── test_fuzzy_match.py (67/53)
+│   │   ├── test_hidden_dir_filter.py (95/68)
+│   │   ├── test_homeassistant_tool.py (373/249)
+│   │   ├── test_interrupt.py (224/142)
+│   │   ├── test_llm_content_none_guard.py (294/196)
+│   │   ├── test_local_env_blocklist.py (321/272)
+│   │   ├── test_local_tempdir.py (51/41)
+│   │   ├── test_managed_browserbase_and_modal.py (481/397)
+│   │   ├── test_managed_media_gateways.py (293/243)
+│   │   ├── test_managed_modal_environment.py (327/260)
+│   │   ├── test_managed_server_tool_support.py (178/129)
+│   │   ├── test_managed_tool_gateway.py (101/85)
+│   │   ├── test_mcp_dynamic_discovery.py (170/123)
+│   │   ├── test_mcp_oauth.py (433/302)
+│   │   ├── test_mcp_probe.py (215/170)
+│   │   ├── test_mcp_stability.py (143/92)
+│   │   ├── test_mcp_structured_content.py (111/91)
+│   │   ├── test_mcp_tool.py (3063/2290)
+│   │   ├── test_mcp_tool_issue_948.py (97/71)
+│   │   ├── test_memory_tool.py (260/191)
+│   │   ├── test_mixture_of_agents_tool.py (82/68)
+│   │   ├── test_modal_sandbox_fixes.py (290/220)
+│   │   ├── test_modal_snapshot_isolation.py (258/203)
+│   │   ├── test_notify_on_complete.py (267/213)
+│   │   ├── test_osv_check.py (170/131)
+│   │   ├── test_parse_env_var.py (86/63)
+│   │   ├── test_patch_parser.py (255/217)
+│   │   ├── test_process_registry.py (629/485)
+│   │   ├── test_read_loop_detection.py (436/355)
+│   │   ├── test_registry.py (311/263)
+│   │   ├── test_rl_training_tool.py (142/101)
+│   │   ├── test_search_hidden_dirs.py (170/131)
+│   │   ├── test_send_message_missing_platforms.py (359/264)
+│   │   ├── test_send_message_tool.py (702/595)
+│   │   ├── test_session_search.py (286/210)
+│   │   ├── test_singularity_preflight.py (77/57)
+│   │   ├── test_skill_env_passthrough.py (134/106)
+│   │   ├── test_skill_improvements.py (174/133)
+│   │   ├── test_skill_manager_tool.py (425/309)
+│   │   ├── test_skill_size_limits.py (215/161)
+│   │   ├── test_skill_view_path_check.py (116/85)
+│   │   ├── test_skill_view_traversal.py (83/61)
+│   │   ├── test_skills_guard.py (516/370)
+│   │   ├── test_skills_hub.py (1371/1112)
+│   │   ├── test_skills_hub_clawhub.py (260/223)
+│   │   ├── test_skills_sync.py (491/358)
+│   │   ├── test_skills_tool.py (1048/850)
+│   │   ├── test_ssh_environment.py (218/166)
+│   │   ├── test_symlink_prefix_confusion.py (172/126)
+│   │   ├── test_terminal_disk_usage.py (73/45)
+│   │   ├── test_terminal_exit_semantics.py (152/102)
+│   │   ├── test_terminal_none_command_guard.py (21/13)
+│   │   ├── test_terminal_requirements.py (175/138)
+│   │   ├── test_terminal_timeout_output.py (27/21)
+│   │   ├── test_terminal_tool.py (90/55)
+│   │   ├── test_terminal_tool_pty_fallback.py (91/74)
+│   │   ├── test_terminal_tool_requirements.py (56/47)
+│   │   ├── test_threaded_process_handle.py (144/102)
+│   │   ├── test_tirith_security.py (1006/787)
+│   │   ├── test_todo_tool.py (107/87)
+│   │   ├── test_tool_call_parsers.py (274/215)
+│   │   ├── test_tool_result_storage.py (507/417)
+│   │   ├── test_transcription.py (247/172)
+│   │   ├── test_transcription_tools.py (1041/767)
+│   │   ├── test_url_safety.py (176/141)
+│   │   ├── test_vision_tools.py (560/412)
+│   │   ├── test_voice_cli_integration.py (1233/1002)
+│   │   ├── test_voice_mode.py (1208/809)
+│   │   ├── test_web_tools_config.py (617/511)
+│   │   ├── test_web_tools_tavily.py (257/209)
+│   │   ├── test_website_policy.py (512/398)
+│   │   ├── test_windows_compat.py (80/62)
+│   │   ├── test_write_deny.py (83/59)
+│   │   └── test_yolo_mode.py (110/81)
+│   ├── __init__.py (0/0)
+│   ├── conftest.py (121/93)
+│   ├── run_interrupt_test.py (147/121)
+│   ├── test_batch_runner_checkpoint.py (159/117)
+│   ├── test_cli_skin_integration.py (140/104)
+│   ├── test_ctx_halving_fix.py (319/231)
+│   ├── test_evidence_store.py (186/129)
+│   ├── test_hermes_logging.py (383/301)
+│   ├── test_hermes_state.py (1377/1023)
+│   ├── test_honcho_client_config.py (105/75)
+│   ├── test_mcp_serve.py (1111/897)
+│   ├── test_minisweagent_path.py (2/0)
+│   ├── test_model_picker_scroll.py (118/88)
+│   ├── test_model_tools.py (139/101)
+│   ├── test_model_tools_async_bridge.py (307/226)
+│   ├── test_ollama_num_ctx.py (135/100)
+│   ├── test_packaging_metadata.py (22/13)
+│   ├── test_project_metadata.py (22/16)
+│   ├── test_retry_utils.py (117/82)
+│   ├── test_sql_injection.py (43/32)
+│   ├── test_timezone.py (379/272)
+│   ├── test_toolset_distributions.py (103/78)
+│   ├── test_toolsets.py (143/109)
+│   ├── test_trajectory_compressor.py (419/336)
+│   ├── test_trajectory_compressor_async.py (115/86)
+│   └── test_utils_truthy_values.py (29/19)
+├── tinker-atropos/
+├── tools/
+│   ├── browser_providers/
+│   │   ├── __init__.py (10/6)
+│   │   ├── base.py (59/44)
+│   │   ├── browser_use.py (215/166)
+│   │   ├── browserbase.py (217/178)
+│   │   └── firecrawl.py (107/83)
+│   ├── environments/
+│   │   ├── __init__.py (13/9)
+│   │   ├── base.py (568/394)
+│   │   ├── daytona.py (215/186)
+│   │   ├── docker.py (560/442)
+│   │   ├── local.py (299/246)
+│   │   ├── managed_modal.py (282/241)
+│   │   ├── modal.py (372/309)
+│   │   ├── modal_utils.py (186/146)
+│   │   ├── singularity.py (262/213)
+│   │   └── ssh.py (163/142)
+│   ├── neutts_samples/
+│   ├── __init__.py (25/15)
+│   ├── ansi_strip.py (44/35)
+│   ├── approval.py (877/628)
+│   ├── binary_extensions.py (42/26)
+│   ├── browser_camofox.py (613/471)
+│   ├── browser_camofox_state.py (47/37)
+│   ├── browser_tool.py (2218/1665)
+│   ├── budget_config.py (52/35)
+│   ├── checkpoint_manager.py (548/399)
+│   ├── clarify_tool.py (141/111)
+│   ├── code_execution_tool.py (1371/1053)
+│   ├── credential_files.py (413/319)
+│   ├── cronjob_tools.py (532/445)
+│   ├── debug_helpers.py (105/83)
+│   ├── delegate_tool.py (978/789)
+│   ├── env_passthrough.py (107/76)
+│   ├── file_operations.py (1082/765)
+│   ├── file_tools.py (835/636)
+│   ├── fuzzy_match.py (482/329)
+│   ├── homeassistant_tool.py (490/387)
+│   ├── image_generation_tool.py (703/542)
+│   ├── interrupt.py (28/20)
+│   ├── managed_tool_gateway.py (167/130)
+│   ├── mcp_oauth.py (481/334)
+│   ├── mcp_tool.py (2186/1717)
+│   ├── memory_tool.py (560/421)
+│   ├── mixture_of_agents_tool.py (562/422)
+│   ├── neutts_synth.py (104/78)
+│   ├── openrouter_client.py (33/25)
+│   ├── osv_check.py (155/119)
+│   ├── patch_parser.py (455/336)
+│   ├── process_registry.py (1039/842)
+│   ├── registry.py (335/260)
+│   ├── rl_training_tool.py (1396/1041)
+│   ├── send_message_tool.py (999/853)
+│   ├── session_search_tool.py (504/412)
+│   ├── skill_manager_tool.py (742/572)
+│   ├── skills_guard.py (1105/888)
+│   ├── skills_hub.py (2707/2188)
+│   ├── skills_sync.py (295/232)
+│   ├── skills_tool.py (1376/1093)
+│   ├── terminal_tool.py (1785/1377)
+│   ├── tirith_security.py (670/498)
+│   ├── todo_tool.py (268/211)
+│   ├── tool_backend_helpers.py (89/68)
+│   ├── tool_result_storage.py (225/188)
+│   ├── transcription_tools.py (692/514)
+│   ├── tts_tool.py (983/736)
+│   ├── url_safety.py (96/67)
+│   ├── vision_tools.py (614/466)
+│   ├── voice_mode.py (1021/770)
+│   ├── web_tools.py (2101/1617)
+│   └── website_policy.py (282/218)
+├── website/
+│   ├── docs/
+│   │   ├── developer-guide/
+│   │   │   └── _category_.json (8/8)
+│   │   ├── getting-started/
+│   │   │   └── _category_.json (8/8)
+│   │   ├── guides/
+│   │   │   └── _category_.json (6/6)
+│   │   ├── integrations/
+│   │   ├── reference/
+│   │   │   └── _category_.json (8/8)
+│   │   └── user-guide/
+│   │       ├── features/
+│   │       │   └── _category_.json (8/8)
+│   │       ├── messaging/
+│   │       │   └── _category_.json (8/8)
+│   │       ├── skills/
+│   │       └── _category_.json (8/8)
+│   ├── scripts/
+│   │   └── extract-skills.py (268/220)
+│   ├── src/
+│   │   ├── css/
+│   │   │   └── custom.css (254/181)
+│   │   └── pages/
+│   │       └── skills/
+│   │           ├── index.tsx (582/548)
+│   │           └── styles.module.css (819/700)
+│   ├── static/
+│   │   └── img/
+│   │       ├── docs/
+│   │       │   ├── cli-layout.svg (32/29)
+│   │       │   └── session-recap.svg (13/12)
+│   │       └── favicon.svg (3/3)
+│   ├── docusaurus.config.ts (150/139)
+│   ├── package-lock.json (20255/20255)
+│   ├── package.json (50/50)
+│   ├── sidebars.ts (213/211)
+│   └── tsconfig.json (8/8)
+├── Dockerfile (28/19)
+├── batch_runner.py (1287/973)
+├── cli.py (9133/7264)
+├── hermes (11/8)
+├── hermes_constants.py (115/85)
+├── hermes_logging.py (262/199)
+├── hermes_state.py (1304/1070)
+├── hermes_time.py (118/88)
+├── mcp_serve.py (867/680)
+├── mini_swe_runner.py (709/530)
+├── model_tools.py (577/410)
+├── package-lock.json (3096/3096)
+├── package.json (25/25)
+├── pyproject.toml (133/112)
+├── rl_cli.py (446/310)
+├── run_agent.py (9830/7665)
+├── setup-hermes.sh (399/290)
+├── toolset_distributions.py (364/273)
+├── toolsets.py (643/471)
+├── trajectory_compressor.py (1517/1098)
+└── utils.py (126/104)
