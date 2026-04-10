@@ -794,7 +794,7 @@ class AIAgent:
                     client_kwargs["default_headers"] = copilot_default_headers()
                 elif "api.kimi.com" in effective_base.lower():
                     client_kwargs["default_headers"] = {
-                        "User-Agent": "KimiCLI/1.3",
+                        "User-Agent": "KimiCLI/1.30.0",
                     }
                 elif "portal.qwen.ai" in effective_base.lower():
                     client_kwargs["default_headers"] = _qwen_portal_headers()
@@ -4181,7 +4181,7 @@ class AIAgent:
 
             self._client_kwargs["default_headers"] = copilot_default_headers()
         elif "api.kimi.com" in normalized:
-            self._client_kwargs["default_headers"] = {"User-Agent": "KimiCLI/1.3"}
+            self._client_kwargs["default_headers"] = {"User-Agent": "KimiCLI/1.30.0"}
         elif "portal.qwen.ai" in normalized:
             self._client_kwargs["default_headers"] = _qwen_portal_headers()
         else:
@@ -5466,6 +5466,7 @@ class AIAgent:
                 preserve_dots=self._anthropic_preserve_dots(),
                 context_length=ctx_len,
                 base_url=getattr(self, "_anthropic_base_url", None),
+                fast_mode=self.request_overrides.get("speed") == "fast",
             )
 
         if self.api_mode == "codex_responses":
